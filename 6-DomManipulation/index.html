@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- Proses mengubah isi elemen secara dinamis -->
+
+<div id="container">
+    <h1 id="judul">Ucapan Sambutan</h1>
+    <input type="text" id="inputText">
+    <button class="btn"></button>
+</div>
+
+<script>
+    let container = document.querySelector('#container')
+    let judul = document.querySelector('#judul')
+    let input = document.querySelector('#inputText')
+    let btn = document.querySelector('.btn')
+    // 1. Teks Manipulatioon
+        judul.innerHTML = `
+        <h1>Selamat Datang!</h1>
+        <p>Silahkan Masukkan Nama Anda</p>
+            `;
+        btn.innerHTML = "Submit";
+
+    // 2. Style Manipulation
+        document.body.style.background = "darkgrey";
+        judul.style.fontWeight = "lighter";
+        btn.style.background = "blue";
+        btn.style.border = "none";
+        btn.style.margin = "0.5rem";
+
+        container.style.display = "flex";
+        container.style.flexDirection = "column";
+        container.style.alignItems = "center";
+
+    // 3. Set Attribute
+        input.setAttribute("placeholder", "Masukkan Nama Anda");
+
+    // 4. Class Manipulation
+        input.classList.add("input-style");
+            let inputStyle = document.querySelector('.input-style');
+            inputStyle.style.background = "lightgreen";
+
+
+</script>
+</body>
+</html>

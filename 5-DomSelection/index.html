@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+    5 cara untuk memilih elemen di DOM :
+1. getElementById() : Memilih elemen berdasarkan id.
+2. getElementsByClassName() : Memilih elemen berdasarkan class.
+3. getElementsByTagName() : Memilih elemen berdasarkan nama tag.
+4. querySelector() : Memilih elemen pertama yang cocok dengan selector CSS.
+5. querySelectorAll() : Memilih semua elemen yang cocok dengan selector CSS.    
+-->
+<div>
+    <p id="JudulId">Judul 1</p>
+    <p class="JudulClass">Judul 2</p>
+    <p>Judul 3</p>
+    <p id="querry">Judul 4</p>
+    <p class="querryAll">Judul 5</p>
+</div>
+
+<script>
+    // getElementById
+    let judulId = document.getElementById('JudulId');
+    judulId.innerHTML = "Judul 1 diubah dengan getElementById";
+
+    // getElementsByClassName
+    let judulClass = document.getElementsByClassName('JudulClass');
+    judulClass[0].innerHTML = "Judul 2 diubah dengan getElementsByClassName";
+        //Menggunakan [0] karena getElementsByClassName mengembalikan HTMLCollection, yang merupakan kumpulan elemen, jadi kita harus memilih indexnya.
+
+    // getElementsByTagName
+    let judulTag = document.getElementsByTagName('p');
+    judulTag[2].innerHTML = "Judul 3 diubah dengan getElementsByTagName";
+        //Menggunakan [2] karena getElementsByTagName mengembalikan HTMLCollection, yang merupakan kumpulan elemen, jadi kita harus memilih indexnya.
+
+    // querySelector
+    let querry = document.querySelector('#querry');
+    querry.innerHTML = "Judul 4 diubah dengan querySelector";
+
+    // querySelectorAll
+    let querryAll = document.querySelectorAll('.querryAll');
+    querryAll[0].innerHTML = "Judul 5 diubah dengan querySelectorAll";
+        //Menggunakan [0] karena querySelectorAll mengembalikan NodeList, yang merupakan kumpulan elemen, jadi kita harus memilih indexnya.
+</script>
+</body>
+</html>

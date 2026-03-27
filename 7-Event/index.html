@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="container">
+    <h1 id="judul">Ucapan Sambutan</h1>
+    <input type="text" id="inputText">
+    <div>
+        <input type="checkbox" id="checkbox">
+        <label for="checkbox">Checkbox</label>
+    </div>
+    <button class="btn"></button>
+</div>
+
+<section id="list"></section>
+
+<script>
+    let container = document.querySelector('#container')
+    let judul = document.querySelector('#judul')
+    let input = document.querySelector('#inputText')
+    let checkbox = document.querySelector('#checkbox')
+    let btn = document.querySelector('.btn')
+        judul.innerHTML = `
+        <h1>Selamat Datang!</h1>
+            `;
+        btn.innerHTML = "Submit";
+
+
+        document.body.style.background = "darkgrey";
+        judul.style.fontWeight = "lighter";
+        btn.style.background = "blue";
+        btn.style.padding = "0.5rem";
+        btn.style.border = "none";
+        btn.style.margin = "0.5rem";
+
+        container.style.display = "flex";
+        container.style.flexDirection = "column";
+        container.style.alignItems = "center";
+
+        input.setAttribute("placeholder", "List Baru");
+
+        input.classList.add("input-style");
+            let inputStyle = document.querySelector('.input-style');
+            inputStyle.style.background = "lightgreen";
+
+    // Event
+    checkbox.addEventListener('change', function() {
+        if (checkbox.checked) {
+            console.log("Checkbox Yakin");
+        } else {
+            console.log("Checkbox Tidak Yakin");
+        }
+    })
+
+    btn.addEventListener('click', function() {
+        console.log("Tombol Diklik");
+    })
+</script>
+</body>
+</html>

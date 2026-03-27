@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+    Berdasarkan isi :
+    - NodeList berisi kumpulan dari elemen, teks, comment dan apapun yang ada di dokumen.
+    - HTMLCollection berisi kumpulan dari elemen saja, seperti tag div, p, span, dll.
+
+    Berdasarkan bentuk datanya :
+    Mereka mirip dengan array. Kita bisa mengakses index dari keduanya, Tapi :
+    - NodeList bisa menggunakan forEach.
+    - HTMLCollection tidak bisa menggunakan forEach, tapi bisa menggunakan for biasa.
+
+    Berdasarkan sifatnya :
+    - NodeList bisa bersifat live atau static, tergantung bagaimana kita mendapatkannya.
+    - HTMLCollection selalu bersifat live, artinya jika ada perubahan pada dokumen, HTMLCollection akan otomatis terupdate.
+
+    contoh :
+    -->
+
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <script>
+        let htmlCollection = document.getElementsByTagName('li');
+        let nodeList = document.querySelectorAll('li');
+
+        console.log(htmlCollection);
+        console.log(nodeList);
+
+        // Membuat elemen baru
+        let ulContainer = document.querySelector('ul');
+        let liNew = document.createElement('li');
+        liNew.innerHTML = "Item Baru";
+
+        ulContainer.appendChild(liNew);
+    </script>
+</body>
+</html>

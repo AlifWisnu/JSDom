@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let header = document.createElement('h1');
+        header.textContent = 'To Do List';
+        document.body.appendChild(header);
+
+        let toDoList = document.createElement('form');
+        toDoList.innerHTML = `
+            <input type="text" id="taskInput" placeholder="Enter a task">
+            <input type="checkbox" id="checkbox"> Checkbox<br>
+            <button type="submit">Add Task</button>
+        `;
+        document.body.appendChild(toDoList);
+
+        checkbox.addEventListener('change', function() {
+            if (checkbox.checked) {
+                console.log('Checkbox aktif');
+            } else {
+                console.log('Checkbox tidak aktif');
+            }
+        });
+
+        let btnSubmit = toDoList.querySelector('button[type="submit"]');
+        btnSubmit.addEventListener('click', function() {
+            console.log('Submit di klik');
+        });
+
+        toDoList.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let taskText = taskInput.value.trim();
+            if (taskText === '') {
+                alert('Tugas tidak boleh kosong!');
+                return;
+            }
+
+            let taskItem = document.createElement('div');
+            taskItem.classList.add("d-flex","flex-row" , "align-items-center", "mb-2");
+
+            taskItem.innerHTML = `
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="checkbox">
+                    <label class="form-check-label" for="checkbox">${taskText}</label>
+                    <button class="btn btn-danger btn-sm ml-2" id="delete">Delete</button>
+                </div>
+            `;
+            document.body.appendChild(taskItem);
+
+            taskInput.value = '';
+
+            let deleteBtn = taskItem.querySelector('#delete');
+            deleteBtn.addEventListener('click', function() {
+                taskItem.remove();
+            });
+
+            list.addEventListener('change', function() {
+                if (checkbox.checked) {
+                    taskItem.style.textDecoration = 'line-through';
+                } else {
+                    taskItem.style.textDecoration = 'none';
+                }
+
+        });
+    });
+    </script>
+</body>
+</html>
