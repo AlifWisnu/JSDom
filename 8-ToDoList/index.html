@@ -14,18 +14,10 @@
         let toDoList = document.createElement('form');
         toDoList.innerHTML = `
             <input type="text" id="taskInput" placeholder="Enter a task">
-            <input type="checkbox" id="checkbox"> Checkbox<br>
+
             <button type="submit">Add Task</button>
         `;
         document.body.appendChild(toDoList);
-
-        checkbox.addEventListener('change', function() {
-            if (checkbox.checked) {
-                console.log('Checkbox aktif');
-            } else {
-                console.log('Checkbox tidak aktif');
-            }
-        });
 
         let btnSubmit = toDoList.querySelector('button[type="submit"]');
         btnSubmit.addEventListener('click', function() {
@@ -60,15 +52,16 @@
                 taskItem.remove();
             });
 
-            list.addEventListener('change', function() {
+            let checkbox = taskItem.querySelector('input[type="checkbox"]');
+            checkbox.addEventListener('change', function() {
                 if (checkbox.checked) {
-                    taskItem.style.textDecoration = 'line-through';
+                    taskItem.style.background = 'green';
                 } else {
-                    taskItem.style.textDecoration = 'none';
+                    taskItem.style.background = 'white';
                 }
 
+            });
         });
-    });
     </script>
 </body>
 </html>
